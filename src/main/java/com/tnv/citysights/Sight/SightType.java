@@ -1,4 +1,4 @@
-package com.tnv.citysights;
+package com.tnv.citysights.Sight;
 
 public enum SightType {
     MUSEUM,
