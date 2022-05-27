@@ -3,6 +3,7 @@ package com.tnv.citysights.Sight;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/sight")
@@ -20,8 +21,8 @@ public class SightController {
     }
 
     @GetMapping
-    public List<Sight> getAllSights(){
-        return sightsService.getAllSights();
+    public List<Sight> getAllSights(@RequestBody(required=false) Optional<SightFilterCriteria> sightFilterCriteria){
+        return sightsService.getAllSights(sightFilterCriteria);
     }
 
     @GetMapping("/city/{cityId}")
