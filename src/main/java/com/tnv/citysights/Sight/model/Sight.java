@@ -1,7 +1,8 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tnv.citysights.City.model.City;
+import com.tnv.citysights.Sight.SightType;
 
 import javax.persistence.*;
 import java.time.LocalDate;

@@ -1,5 +1,9 @@
 package com.tnv.citysights.Sight;
 
+import com.tnv.citysights.Sight.model.ModifySightDto;
+import com.tnv.citysights.Sight.model.Sight;
+import com.tnv.citysights.Sight.model.SightDto;
+import com.tnv.citysights.Sight.Filter.SightFilterCriteria;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,9 +13,9 @@ import java.util.Optional;
 @RequestMapping("/sight")
 public class SightController {
 
-    private final SightsService sightsService;
+    private final SightService sightsService;
 
-    public SightController(SightsService sightsService) {
+    public SightController(SightService sightsService) {
         this.sightsService = sightsService;
     }
 

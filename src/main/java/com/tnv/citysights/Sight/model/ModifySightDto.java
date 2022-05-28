@@ -1,4 +1,4 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.model;
 
 public class ModifySightDto {
 

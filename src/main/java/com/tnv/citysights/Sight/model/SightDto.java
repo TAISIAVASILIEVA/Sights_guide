@@ -1,4 +1,6 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.model;
+
+import com.tnv.citysights.Sight.SightType;
 
 import java.time.LocalDate;
 

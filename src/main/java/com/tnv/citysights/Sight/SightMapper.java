@@ -1,8 +1,9 @@
 package com.tnv.citysights.Sight;
 
 import com.tnv.citysights.City.CityService;
-import com.tnv.citysights.City.model.City;
-import com.tnv.citysights.City.model.ModifyCityDto;
+import com.tnv.citysights.Sight.model.ModifySightDto;
+import com.tnv.citysights.Sight.model.Sight;
+import com.tnv.citysights.Sight.model.SightDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

@@ -2,12 +2,13 @@ package com.tnv.citysights.City.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
-import com.tnv.citysights.Sight.Sight;
+import com.tnv.citysights.Sight.model.Sight;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.util.List;
 
+// TODO: 28.05.2022 Сделать валидацию
 @Entity
 public class City {
     @Id
