@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/cities")
@@ -25,8 +27,7 @@ public class CityController {
     }
 
     @PatchMapping("/{id}")
-    public void modifyCity(@PathVariable Long id, @Valid @RequestBody ModifyCityDto cityDto, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) throw new ValidException(bindingResult);
+    public void modifyCity(@PathVariable Long id, @RequestBody ModifyCityDto cityDto, BindingResult bindingResult) {
         cityService.modifyCity(id, cityDto);
     }
 }

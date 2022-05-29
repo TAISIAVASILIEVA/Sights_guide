@@ -40,6 +40,6 @@ public class CityService {
         City city = getCityById(id);
         cityMapper.map(city, cityDto);
         cityRepository.save(city);
-        log.info(String.format("City %s has been modified", city.getName()));
+        log.info(String.format("City with id %s has been modified", city.getId()));
     }
 }

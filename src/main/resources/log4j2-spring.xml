@@ -20,7 +20,9 @@
     </Appenders>
 
     <Loggers>
-        <Root level="ERROR" />
+        <Root level="error">
+            <AppenderRef ref="Console"/>
+        </Root>
         <Logger name="com.tnv.citysights" level="INFO">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
