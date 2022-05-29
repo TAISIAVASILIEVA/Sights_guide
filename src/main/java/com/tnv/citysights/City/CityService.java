@@ -21,11 +21,11 @@ public class CityService {
     }
 
     public City getCityById(Long id) {
-        return cityRepository.getById(id);
+        return cityRepository.findById(id).orElseThrow(()-> new IllegalStateException("There are no city with such id"));
     }
 
-    public void modifyCity(ModifyCityDto cityDto) {
-        City city = getCityById(cityDto.getId());
+    public void modifyCity(Long id, ModifyCityDto cityDto) {
+        City city = getCityById(id);
         cityMapper.map(city, cityDto);
         cityRepository.save(city);
     }

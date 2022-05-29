@@ -1,4 +1,6 @@
 spring:
+  liquibase:
+    enabled: true
   datasource:
     url: jdbc:postgresql://localhost:5432/CitySights
     username: postgres
@@ -9,5 +11,5 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: none
     show-sql: true

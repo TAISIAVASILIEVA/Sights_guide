@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: taisia
+      changes:
+        - createTable:
+            tableName: sight
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_of_construction
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(250)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: city_id
+                  type: bigint
+                  constraints:
+                    - nullable: false
+              - addForeignKeyConstraint:
+                  baseColumnNames: city_id
+                  baseTableName: sight
+                  onDelete: NO ACTION
+                  onUpdate: NO ACTION
+                  referencedColumnNames: id
+                  referencedTableName: city
+                  referencedTableSchemaName: public
+                  validate: true

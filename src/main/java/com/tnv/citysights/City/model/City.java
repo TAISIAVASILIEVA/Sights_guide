@@ -31,13 +31,12 @@ public class City {
     @JsonIgnore
     private List<Sight> sights;
 
-    public City(Long id, String name, Long population, Boolean subwayAvailability, String country, List<Sight> sights) {
+    public City(Long id, @NonNull String name, @NonNull Long population, @NonNull Boolean subwayAvailability, String country) {
         this.id = id;
         this.name = name;
         this.population = population;
         this.subwayAvailability = subwayAvailability;
         this.country = country;
-        this.sights = sights;
     }
 
     public City() {
@@ -51,27 +50,30 @@ public class City {
         this.id = id;
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
+    @NonNull
     public Long getPopulation() {
         return population;
     }
 
-    public void setPopulation(Long population) {
+    public void setPopulation(@NonNull Long population) {
         this.population = population;
     }
 
+    @NonNull
     public Boolean getSubwayAvailability() {
         return subwayAvailability;
     }
 
-    public void setSubwayAvailability(Boolean subwayAvailability) {
+    public void setSubwayAvailability(@NonNull Boolean subwayAvailability) {
         this.subwayAvailability = subwayAvailability;
     }
 

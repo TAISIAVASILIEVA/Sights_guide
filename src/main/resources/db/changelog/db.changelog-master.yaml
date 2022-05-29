@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: changeset/v1_create-table-city.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changeset/create-table-sight.yaml
+      relativeToChangelogFile: true
+
+

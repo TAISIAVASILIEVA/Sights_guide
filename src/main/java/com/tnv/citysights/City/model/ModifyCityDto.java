@@ -1,22 +1,10 @@
 package com.tnv.citysights.City.model;
 
 public class ModifyCityDto {
-    private Long id;
 
     private Long population;
 
     private Boolean subwayAvailability;
-
-    public ModifyCityDto() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getPopulation() {
         return population;
