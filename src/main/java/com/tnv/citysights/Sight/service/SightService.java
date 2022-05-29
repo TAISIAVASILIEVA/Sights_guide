@@ -40,7 +40,7 @@ public class SightService {
     }
 
     public List<Sight> getAllSights(Optional<SightFilterCriteria> sightFilterCriteria) {
-        if (sightFilterCriteria.isEmpty()) return sightRepository.findAll();
+        if (!sightFilterCriteria.isPresent()) return sightRepository.findAll();
         Specification<Sight> specification = sightFilter.getSpecification(sightFilterCriteria.get());
         if (sightFilterCriteria.get().getSortType() != null) {
             Sort sort = sightFilter.getSort(sightFilterCriteria.get());
@@ -57,7 +57,7 @@ public class SightService {
 
     public void modifySight(Long id, ModifySightDto sightDto) {
         Optional<Sight> sight = getSightById(id);
-        if (sight.isEmpty()) {
+        if (!sight.isPresent()) {
             log.error(String.format("There are no sight with id %s", id));
             throw new IllegalStateException("There are no sight with such id");
         }

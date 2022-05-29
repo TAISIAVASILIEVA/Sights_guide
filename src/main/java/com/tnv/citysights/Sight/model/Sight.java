@@ -2,6 +2,7 @@ package com.tnv.citysights.Sight.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tnv.citysights.City.model.City;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,19 +14,24 @@ public class Sight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Schema(description = "Название достопримечательности")
     private String name;
 
+    @Schema(description = "Дата постройки")
     private LocalDate dateOfConstruction;
 
+
+    @Schema(description = "Описание")
     private String description;
 
+    @Schema(description = "Тип")
     @Enumerated(EnumType.STRING)
     private SightType type;
 
+    @Schema(description = "Город")
     @ManyToOne
     @JoinColumn(nullable = false,
             name = "city_id")
-    @JsonIgnore
     private City city;
 
     public Sight() {

@@ -1,5 +1,7 @@
 package com.tnv.citysights.Sight.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -7,19 +9,24 @@ import java.time.LocalDate;
 
 public class SightDto {
 
+    @Schema(description = "Название достопримечательности")
     @NotBlank(message = "Необходимо указать название")
     private String name;
 
+    @Schema(description = "Дата постройки")
     @PastOrPresent
     @NotNull(message = "Необходимо указать дату постройки")
     private LocalDate dateOfConstruction;
 
+    @Schema(description = "Описание")
     @NotNull(message = "Необходимо заполнить описание")
     private String description;
 
+    @Schema(description = "Тип")
     @NotNull(message = "Неободимо указать тип достопримечательности")
     private SightType type;
 
+    @Schema(description = "Город")
     @NotNull(message = "Необходимо указать город")
     private Long cityId;
 

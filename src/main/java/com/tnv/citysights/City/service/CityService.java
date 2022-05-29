@@ -29,7 +29,7 @@ public class CityService {
 
     public City getCityById(Long id) {
         Optional<City> city = cityRepository.findById(id);
-        if (city.isEmpty()) {
+        if (!city.isPresent()) {
             log.error(String.format("There is no city with id %s", id));
             throw new IllegalStateException(String.format("There is no city with id %s", id));
         }

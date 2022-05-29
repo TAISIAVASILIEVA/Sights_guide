@@ -1,5 +1,7 @@
 package com.tnv.citysights.City.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -7,6 +9,7 @@ import javax.validation.constraints.NotNull;
 
 public class ModifyCityDto {
 
+    @Schema(description = "Численность населения")
     @Min(value = 0, message = "Численность населения не может быть меньше нуля")
     private Long population;
 

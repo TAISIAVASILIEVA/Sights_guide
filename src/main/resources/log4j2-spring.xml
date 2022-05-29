@@ -3,12 +3,12 @@
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
-                    pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable{short} %n" disableAnsi="false" />
+                    pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable{short}%n" disableAnsi="false" />
         </Console>
         <RollingFile name="RollingFile"
                      filePattern="./logs/$${date:yyyy-MM-dd}/logs-%d{-dd-MMMM-yyyy}-%i.log">
             <PatternLayout>
-                <pattern>%d %p %C{1.} [%t] %m%n %throwable{short}</pattern>
+                <pattern>%d %p %C{1.} [%t] %m%n %throwable{short}%n</pattern>
             </PatternLayout>
             <Policies>
                 <OnStartupTriggeringPolicy />
@@ -20,12 +20,13 @@
     </Appenders>
 
     <Loggers>
-        <Root level="error">
-            <AppenderRef ref="Console"/>
+        <Root level="ERROR">
+            <AppenderRef ref="Console" level="ERROR"/>
+            <AppenderRef ref="RollingFile" level="ERROR" />
         </Root>
         <Logger name="com.tnv.citysights" level="INFO">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="RollingFile" />
+            <AppenderRef ref="RollingFile" level="INFO" />
         </Logger>
     </Loggers>
 </Configuration>
