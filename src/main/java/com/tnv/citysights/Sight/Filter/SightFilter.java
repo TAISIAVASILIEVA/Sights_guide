@@ -1,7 +1,6 @@
 package com.tnv.citysights.Sight.Filter;
 
 import com.tnv.citysights.Sight.model.Sight;
-import com.tnv.citysights.Sight.model.SortType;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;

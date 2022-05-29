@@ -1,4 +1,4 @@
-package com.tnv.citysights.Sight.model;
+package com.tnv.citysights.Sight.Filter;
 
 public enum SortType {
     ASCEND,

@@ -1,7 +1,6 @@
 package com.tnv.citysights.Sight.Filter;
 
 import com.tnv.citysights.Sight.model.SightType;
-import com.tnv.citysights.Sight.model.SortType;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "Объект для фильтрации")
