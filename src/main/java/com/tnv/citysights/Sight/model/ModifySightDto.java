@@ -1,7 +1,10 @@
 package com.tnv.citysights.Sight.model;
 
+import javax.validation.constraints.NotNull;
+
 public class ModifySightDto {
 
+    @NotNull
     private String description;
 
     public String getDescription() {

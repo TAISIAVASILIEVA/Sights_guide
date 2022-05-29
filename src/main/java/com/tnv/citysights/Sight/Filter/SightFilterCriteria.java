@@ -1,18 +1,29 @@
 package com.tnv.citysights.Sight.Filter;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.tnv.citysights.Sight.SightType;
 import com.tnv.citysights.Sight.model.SortType;
 
 public class SightFilterCriteria {
-    SortType nameSortType;
+    SortType sortType;
     SightType sightType;
 
-    public SortType getNameSortType() {
-        return nameSortType;
+    public SightFilterCriteria(SortType sortType, SightType sightType) {
+        this.sortType = sortType;
+        this.sightType = sightType;
     }
 
-    public void setNameSortType(SortType nameSortType) {
-        this.nameSortType = nameSortType;
+    public SightFilterCriteria() {
+    }
+
+    public SortType getSortType() {
+        return sortType;
+    }
+
+    public void setSortType(SortType sortType) {
+        this.sortType = sortType;
     }
 
     public SightType getSightType() {

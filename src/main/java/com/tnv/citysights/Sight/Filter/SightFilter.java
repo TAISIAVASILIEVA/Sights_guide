@@ -27,7 +27,7 @@ public class SightFilter implements ISightFilter{
 
     @Override
     public Sort getSort(SightFilterCriteria condition) {
-        return condition.getNameSortType().equals(SortType.ASCEND) ?
+        return condition.getSortType().equals(SortType.ASCEND) ?
                 Sort.by(Sort.Direction.ASC, "name") : Sort.by(Sort.Direction.DESC, "name");
     }
 

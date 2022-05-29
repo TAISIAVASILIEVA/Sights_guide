@@ -4,8 +4,10 @@ import com.tnv.citysights.Sight.model.ModifySightDto;
 import com.tnv.citysights.Sight.model.Sight;
 import com.tnv.citysights.Sight.model.SightDto;
 import com.tnv.citysights.Sight.Filter.SightFilterCriteria;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +22,7 @@ public class SightController {
     }
 
     @PostMapping
-    public void addSight(@RequestBody SightDto sightDto) {
+    public void addSight(@Valid @RequestBody SightDto sightDto) {
         sightsService.addSight(sightDto);
     }
 
@@ -35,7 +37,7 @@ public class SightController {
     }
 
     @PatchMapping("/{id}")
-    public void modifySight(@PathVariable Long id, @RequestBody ModifySightDto sightDto) {
+    public void modifySight(@PathVariable Long id, @Valid @RequestBody ModifySightDto sightDto) {
         sightsService.modifySight(id, sightDto);
     }
 

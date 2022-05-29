@@ -1,18 +1,30 @@
 package com.tnv.citysights.Sight.model;
 
 import com.tnv.citysights.Sight.SightType;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 
 public class SightDto {
+
+    @NotBlank(message = "Необходимо указать имя")
     private String name;
 
+    @PastOrPresent
+    @NotNull(message = "Необходимо указать дату постройки")
     private LocalDate dateOfConstruction;
 
+    @NotNull
     private String description;
 
+    @NotNull(message = "Неободимо указать тип достопримечательности")
     private SightType type;
 
+    @NotNull(message = "Необходимо указать город")
     private Long cityId;
 
     public SightDto() {

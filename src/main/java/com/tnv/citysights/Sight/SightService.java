@@ -38,7 +38,7 @@ public class SightService {
     public List<Sight> getAllSights(Optional<SightFilterCriteria> sightFilterCriteria) {
         if (sightFilterCriteria.isEmpty()) return sightRepository.findAll();
         Specification<Sight> specification = sightFilter.getSpecification(sightFilterCriteria.get());
-        if (sightFilterCriteria.get().getNameSortType() != null) {
+        if (sightFilterCriteria.get().getSortType() != null) {
             Sort sort = sightFilter.getSort(sightFilterCriteria.get());
             return sightRepository
                     .findAll(specification, sort);

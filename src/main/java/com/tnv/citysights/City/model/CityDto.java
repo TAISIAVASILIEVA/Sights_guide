@@ -1,13 +1,22 @@
 package com.tnv.citysights.City.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class CityDto {
 
+    @NotBlank(message = "Необходимо указать название города")
     private String name;
 
+    @NotNull
+    @Min(value = 0, message = "Численность населения не может быть меньше нуля")
     private Long population;
 
+    @NotNull
     private Boolean subwayAvailability;
 
+    @NotBlank(message = "Необходимо указать страну")
     private String country;
 
     public CityDto(String name, Long population, Boolean subwayAvailability, String country) {

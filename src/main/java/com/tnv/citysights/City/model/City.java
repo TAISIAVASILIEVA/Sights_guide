@@ -15,24 +15,19 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
     private String name;
 
-    @NonNull
     private Long population;
 
-    @NonNull
     private Boolean subwayAvailability;
 
-    @NotNull
     private String country;
 
     @OneToMany(mappedBy = "city")
     @JsonIgnore
     private List<Sight> sights;
 
-    public City(Long id, @NonNull String name, @NonNull Long population, @NonNull Boolean subwayAvailability, String country) {
-        this.id = id;
+    public City(String name, Long population, Boolean subwayAvailability, String country) {
         this.name = name;
         this.population = population;
         this.subwayAvailability = subwayAvailability;
@@ -50,30 +45,27 @@ public class City {
         this.id = id;
     }
 
-    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(@NonNull String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    @NonNull
     public Long getPopulation() {
         return population;
     }
 
-    public void setPopulation(@NonNull Long population) {
+    public void setPopulation(Long population) {
         this.population = population;
     }
 
-    @NonNull
     public Boolean getSubwayAvailability() {
         return subwayAvailability;
     }
 
-    public void setSubwayAvailability(@NonNull Boolean subwayAvailability) {
+    public void setSubwayAvailability(Boolean subwayAvailability) {
         this.subwayAvailability = subwayAvailability;
     }
 
