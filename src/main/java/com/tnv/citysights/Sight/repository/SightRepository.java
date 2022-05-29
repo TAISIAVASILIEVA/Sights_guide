@@ -1,4 +1,4 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.repository;
 
 import com.tnv.citysights.City.model.City;
 import com.tnv.citysights.Sight.model.Sight;

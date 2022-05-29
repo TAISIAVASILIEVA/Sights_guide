@@ -1,4 +1,4 @@
-package com.tnv.citysights.City;
+package com.tnv.citysights.City.repository;
 
 import com.tnv.citysights.City.model.City;
 import org.springframework.data.jpa.repository.JpaRepository;

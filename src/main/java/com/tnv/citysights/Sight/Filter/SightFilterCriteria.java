@@ -1,9 +1,6 @@
 package com.tnv.citysights.Sight.Filter;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.tnv.citysights.Sight.SightType;
+import com.tnv.citysights.Sight.model.SightType;
 import com.tnv.citysights.Sight.model.SortType;
 
 public class SightFilterCriteria {

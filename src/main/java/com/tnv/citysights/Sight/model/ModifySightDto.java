@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class ModifySightDto {
 
-    @NotNull
+    @NotNull(message = "Необходимо заполнить описание")
     private String description;
 
     public String getDescription() {

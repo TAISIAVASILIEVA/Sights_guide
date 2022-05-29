@@ -1,6 +1,6 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.service;
 
-import com.tnv.citysights.City.CityService;
+import com.tnv.citysights.City.service.CityService;
 import com.tnv.citysights.Sight.model.ModifySightDto;
 import com.tnv.citysights.Sight.model.Sight;
 import com.tnv.citysights.Sight.model.SightDto;

@@ -1,22 +1,18 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.controller;
 
+import com.tnv.citysights.Sight.Filter.SightFilterCriteria;
 import com.tnv.citysights.Sight.model.ModifySightDto;
 import com.tnv.citysights.Sight.model.Sight;
 import com.tnv.citysights.Sight.model.SightDto;
-import com.tnv.citysights.Sight.Filter.SightFilterCriteria;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.tnv.citysights.Sight.service.SightService;
+import com.tnv.citysights.Util.ValidException;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.metamodel.Bindable;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j
 @RestController
 @RequestMapping("/sights")
 public class SightController {
@@ -28,14 +24,9 @@ public class SightController {
     }
 
     @PostMapping
-    public ResponseEntity addSight(@Valid @RequestBody SightDto sightDto, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            String message = bindingResult.getFieldError().getDefaultMessage();
-            log.error("Запрос");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
-        }
+    public void addSight(@Valid @RequestBody SightDto sightDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) throw new ValidException(bindingResult);
         sightsService.addSight(sightDto);
-        return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 
     @GetMapping
@@ -49,7 +40,8 @@ public class SightController {
     }
 
     @PatchMapping("/{id}")
-    public void modifySight(@PathVariable Long id, @Valid @RequestBody ModifySightDto sightDto) {
+    public void modifySight(@PathVariable Long id, @Valid @RequestBody ModifySightDto sightDto, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) throw new ValidException(bindingResult);
         sightsService.modifySight(id, sightDto);
     }
 

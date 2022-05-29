@@ -1,4 +1,4 @@
-package com.tnv.citysights.City;
+package com.tnv.citysights.City.service;
 
 import com.tnv.citysights.City.model.City;
 import com.tnv.citysights.City.model.CityDto;

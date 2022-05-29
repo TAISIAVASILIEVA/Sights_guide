@@ -1,9 +1,10 @@
-package com.tnv.citysights.Sight;
+package com.tnv.citysights.Sight.service;
 
-import com.tnv.citysights.City.CityService;
+import com.tnv.citysights.City.service.CityService;
 import com.tnv.citysights.City.model.City;
 import com.tnv.citysights.Sight.Filter.ISightFilter;
 import com.tnv.citysights.Sight.Filter.SightFilterCriteria;
+import com.tnv.citysights.Sight.repository.SightRepository;
 import com.tnv.citysights.Sight.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;

@@ -1,11 +1,10 @@
-package com.tnv.citysights.City;
+package com.tnv.citysights.City.service;
 
+import com.tnv.citysights.City.repository.CityRepository;
 import com.tnv.citysights.City.model.City;
 import com.tnv.citysights.City.model.CityDto;
 import com.tnv.citysights.City.model.ModifyCityDto;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
