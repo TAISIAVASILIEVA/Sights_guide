@@ -40,4 +40,4 @@
 * В файле application.yml сконфигурировать `url`, `username`, `password` в соответствии со своим локальным сервером PostgresSQL
 * Создать базу данных с названием "CitySights"
 
-**Документацию на REST-методы сервиса можно посмотреть по URL: `localhost:8080/documentation`**
+**Swagger документация на REST-методы сервиса доступна по URL: `localhost:8080/documentation`**
