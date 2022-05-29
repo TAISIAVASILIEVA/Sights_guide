@@ -3,9 +3,16 @@ package com.tnv.citysights.City;
 import com.tnv.citysights.City.model.City;
 import com.tnv.citysights.City.model.CityDto;
 import com.tnv.citysights.City.model.ModifyCityDto;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+
 @Service
+@Slf4j
 public class CityService {
 
     private final CityRepository cityRepository;
@@ -18,15 +25,22 @@ public class CityService {
 
     public void addCity(CityDto city) {
         cityRepository.save(cityMapper.map(city));
+        log.info(String.format("City %s has been added", city.getName()));
     }
 
     public City getCityById(Long id) {
-        return cityRepository.findById(id).orElseThrow(()-> new IllegalStateException("There are no city with such id"));
+        Optional<City> city = cityRepository.findById(id);
+        if (city.isEmpty()) {
+            log.error(String.format("There is no city with id %s", id));
+            throw new IllegalStateException(String.format("There is no city with id %s", id));
+        }
+        return city.get();
     }
 
     public void modifyCity(Long id, ModifyCityDto cityDto) {
         City city = getCityById(id);
         cityMapper.map(city, cityDto);
         cityRepository.save(city);
+        log.info(String.format("City %s has been modified", city.getName()));
     }
 }

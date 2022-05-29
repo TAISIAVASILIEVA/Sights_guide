@@ -5,6 +5,7 @@ import com.tnv.citysights.City.model.City;
 import com.tnv.citysights.Sight.Filter.ISightFilter;
 import com.tnv.citysights.Sight.Filter.SightFilterCriteria;
 import com.tnv.citysights.Sight.model.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class SightService {
     private final SightRepository sightRepository;
@@ -26,13 +28,14 @@ public class SightService {
         this.sightFilter = sightFilter;
     }
 
-    public Optional<Sight> getSightById(Long id) {
+    private Optional<Sight> getSightById(Long id) {
         return sightRepository.findById(id);
     }
 
     public void addSight(SightDto sightDto) {
         Sight sight = sightMapper.map(sightDto);
         sightRepository.save(sight);
+        log.info(String.format("Sight with id %s was added", sight.getId()));
     }
 
     public List<Sight> getAllSights(Optional<SightFilterCriteria> sightFilterCriteria) {
@@ -48,18 +51,23 @@ public class SightService {
 
     public List<Sight> getCitySights(Long id) {
         City city = cityService.getCityById(id);
-        return sightRepository.findSightsByCity(city);
+        return city.getSights();
     }
 
     public void modifySight(Long id, ModifySightDto sightDto) {
-        Sight sight = getSightById(id)
-                .orElseThrow(() -> new IllegalStateException("There are no sight with such id"));
-        sightMapper.map(sight, sightDto);
-        sightRepository.save(sight);
+        Optional<Sight> sight = getSightById(id);
+        if (sight.isEmpty()) {
+            log.error(String.format("There are no sight with id %s", id));
+            throw new IllegalStateException("There are no sight with such id");
+        }
+        sightMapper.map(sight.get(), sightDto);
+        sightRepository.save(sight.get());
+        log.info(String.format("Sight with id %s was modified", id));
     }
 
     public void deleteSight(Long id) {
         sightRepository.deleteById(id);
+        log.info(String.format("Sight with id %s was deleted", id));
     }
 
 }

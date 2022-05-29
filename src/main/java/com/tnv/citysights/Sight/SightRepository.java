@@ -10,6 +10,4 @@ import java.util.List;
 
 @Repository
 public interface SightRepository extends JpaRepository<Sight, Long>, JpaSpecificationExecutor<Sight> {
-
-    List<Sight> findSightsByCity(City city);
 }
